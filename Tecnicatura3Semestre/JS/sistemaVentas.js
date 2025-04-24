@@ -19,6 +19,10 @@ class DispositivoEntrada{
     set marca(marca){
         this._marca = marca;
     }
+
+    conectar() {
+        console.log(`Se ha conectado el dispositivo: ${this._marca}`);
+    }
 }
 
 class Raton extends DispositivoEntrada{
@@ -31,6 +35,9 @@ class Raton extends DispositivoEntrada{
 
     toString(){
         return `Raton [Id: ${this.idRaton}, Tipo Entrada: ${this.tipoEntrada}, Marca: ${this.marca}]`;
+    }
+    conectar() {
+        console.log(`Se ha conectado el ratón: ${this._marca}`);
     }
 }
 
@@ -45,6 +52,9 @@ class Teclado extends DispositivoEntrada{
     toString(){
         return `Teclado [Id: ${this.idTeclado}, Tipo Entrada: ${this.tipoEntrada}, Marca: ${this.marca}]`;
     }
+    conectar() {
+        console.log(`Se ha conectado el teclado: ${this._marca}`);
+    }
 }
 
 class Monitor{
@@ -52,8 +62,8 @@ class Monitor{
 
     constructor(marca, tamano){
         this._idMonitor = ++Monitor.contadorMonitores;
-        this.marca = marca;
-        this.tamano = tamano;
+        this._marca = marca;
+        this._tamano = tamano;
     }
 
     get idMonitor(){
@@ -62,6 +72,9 @@ class Monitor{
 
     toString(){
         return `Monitor [Id: ${this.idMonitor}, Tamaño: ${this.tamano}, Marca: ${this.marca}]`;
+    }
+    conectar() {
+        console.log(`Se ha conectado el monitor: ${this._marca}`);
     }
 }
 
@@ -82,6 +95,13 @@ Computadora [Id: ${this.idComputadora}, Nombre: ${this.nombre}]
   ${this.monitor.toString()}
   ${this.teclado.toString()}
   ${this.raton.toString()}`;
+    }
+    
+    conectarDispositivos() {
+        console.log(`Se han conectados todos los dispositivos de ${this.nombre}:`);
+        this.monitor.conectar();    
+        this.teclado.conectar();
+        this.raton.conectar();
     }
 }
 
@@ -112,5 +132,14 @@ const compu1 = new Computadora("PC Gamer", monitor1, teclado1, raton1);
 const orden1 = new Orden();
 orden1.agregarComputadora(compu1);
 orden1.mostrarOrden();
+console.log(compu1);
+console.log(orden1);
+compu1.conectarDispositivos();
+
+//Para aplicar polimorfismo, se creó el método conectar() en DispositivoEntrada, y la misma se utiliza en las diferentes clases-hija, y en Monitor. En la clase Computadora se aprovechó que interactua con estas otras clases para poder crear un nuevo método que aproveche conectar().
+//Respecto a la clase Orden, aunque no comparte conectar(), si mantiene esta interacción con los objetos de Computadora, que a su vez sí comparten distintos métodos, como conectar y toString.
+
+
+
 
 
