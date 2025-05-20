@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problema de las N-Reinas</title>
+
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+      margin: 0;
+      height: 100vh;
+      background-color: brown;
+    }
+
+    button{
+      padding: 10px 20px;
+      border: none;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+
+    div{
+      font-size: 1.4em;
+      color: #fff;
+    }
+    div::before{
+      content: 'Indices: [ ';
+    }
+    div::after{
+      content: ']';
+    }
+
+  </style>
+</head>
+<body>
+
+  <canvas id="tablero" width="600" height="600"></canvas>
+  <button id="btn" onclick="dibujarSolucion()">Agregar reinas</button>
+  <div id="contenedorIndices">
+
+  </div>
+
+  <script src="./n-reinas.js"></script>
+</body>
+</html>
