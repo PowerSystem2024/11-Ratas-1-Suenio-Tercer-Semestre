@@ -1,0 +1,4 @@
+07:49:55 PM:INFO [capa_datos_persona.py:15] mensaje a nivel warning
+07:49:55 PM:WARNING [capa_datos_persona.py:16] mensaje a nivel warning
+07:49:55 PM:ERROR [capa_datos_persona.py:17] mensaje a nivel error
+07:49:55 PM:CRITICAL [capa_datos_persona.py:18] mensaje a nivel critical
