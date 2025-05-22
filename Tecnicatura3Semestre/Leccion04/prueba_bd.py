@@ -5,9 +5,10 @@ try:
     with conexion:
         with conexion.cursor() as cursor:
             cursor = conexion.cursor()
-            sentencia = "SELECT * FROM persona"
-            cursor.execute(sentencia) # de set ejecutamos la sentencia
-            registros = cursor.fetchall() #recuperamos todos los registros que seran una lista 
+            sentencia = "SELECT * FROM persona WHERE id_persona = %s"
+            id_persona = input("Digite un numero para el id persona: ")
+            cursor.execute(sentencia,(id_persona)) # de set ejecutamos la sentencia
+            registros = cursor.fetchone() #recuperamos todos los registros que seran una lista 
             print(registros)
 except Exception as e:
     print(f"Ocurrio un error{e}")
