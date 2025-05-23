@@ -138,8 +138,3 @@ compu1.conectarDispositivos();
 
 //Para aplicar polimorfismo, se creó el método conectar() en DispositivoEntrada, y la misma se utiliza en las diferentes clases-hija, y en Monitor. En la clase Computadora se aprovechó que interactua con estas otras clases para poder crear un nuevo método que aproveche conectar().
 //Respecto a la clase Orden, aunque no comparte conectar(), si mantiene esta interacción con los objetos de Computadora, que a su vez sí comparten distintos métodos, como conectar y toString.
-
-
-
-
-
