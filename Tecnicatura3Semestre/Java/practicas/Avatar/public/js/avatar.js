@@ -8,6 +8,10 @@ function iniciarJuego(){
     let botonPersonajeJugador = document.getElementById("boton-personaje");
     botonPersonajeJugador.addEventListener("click", seleccionarPersonajeJugador);
 
+    let botonReiniciar = document.getElementById('boton-reiniciar');
+    botonReiniciar.addEventListener('click', reiniciarJuego);
+
+
     const vidaJugador = document.getElementById("vida-jugador");
     const vidaEnemigo = document.getElementById("vida-enemigo");
     vidaEne = 3;
@@ -45,7 +49,6 @@ function seleccionarPersonajeJugador() {
     }
 
     spanPersonajeJugador.innerHTML = personajeSeleccionado;
-    //alert("SELECCIONASTE A: '" + personajeSeleccionado + "'");
     seleccionarPersonajeEnemigo();
 }
 
@@ -62,26 +65,22 @@ function seleccionarPersonajeEnemigo() {
     } else {
         spanPersonajeEnemigo.innerHTML = "Toph";
     }
-    alert("El enemigo es: " + spanPersonajeEnemigo.innerHTML);
 }
 
 function ataquePunio(){
     ataqueJugador = 'Punio'
-    alert("Atacaste con " + ataqueJugador)
     ataqueAleatorioEnemigo()
     pelea();
 }
 
 function ataquePatada(){
     ataqueJugador = 'Patada'
-    alert("Atacaste con " + ataqueJugador)
     ataqueAleatorioEnemigo()
     pelea();
 }
 
 function ataqueBarrida(){
     ataqueJugador = 'Barrida'
-    alert("Atacaste con " + ataqueJugador)
     ataqueAleatorioEnemigo()
     pelea();
 }
@@ -91,41 +90,45 @@ function ataqueAleatorioEnemigo() {
 
     if(ataqueAleatorio == 1){
         ataqueEnemigo = 'Punio'
-        alert("El enemigo atacó con " + ataqueEnemigo)
     } else if(ataqueAleatorio == 2){
         ataqueEnemigo = 'Patada'
-        alert("El enemigo atacó con " + ataqueEnemigo)
     } else {
         ataqueEnemigo = 'Barrida'
-        alert("El enemigo atacó con " + ataqueEnemigo)
     }
+
+    combate();
+
+}
+
+function combate(){
+    if(ataqueEnemigo == ataqueJugador){
+        crearMensaje("EMPATE");
+    }else if(ataqueEnemigo == 'Punio' && ataqueJugador == 'Barrida'){
+        vidaEne -= 1;
+        crearMensaje("GANASTE");
+    }else if(ataqueEnemigo == 'Patada' && ataqueJugador == 'Punio'){
+        vidaEne -= 1;
+        crearMensaje("GANASTE");
+    }else if(ataqueEnemigo == 'Barrida' && ataqueJugador == 'Patada'){
+        vidaEne -= 1;
+        crearMensaje("GANASTE");
+    }else {
+        vidaJug -= 1;
+        crearMensaje("PERDISTE");
+    };
+}
+
+function crearMensaje(resultado){
+    let sectionMensaje = document.getElementById('mensajes');
+    let parrafo = document.createElement('p');
+
+    parrafo.innerHTML = 'Tu personaje atacó con ' + ataqueJugador + ', el personaje del enemigo atacó con ' + ataqueEnemigo + ' ' + resultado;
+    sectionMensaje.appendChild(parrafo);
 }
 
 function pelea() {
     const vidaJugadorSpan = document.getElementById("vida-jugador");
     const vidaEnemigoSpan = document.getElementById("vida-enemigo");
-
-    if(ataqueJugador == ataqueEnemigo){
-        alert("Empataron!!");
-    } else if(ataqueJugador == 'Punio' && ataqueEnemigo == 'Barrida'){
-        alert("Le hiciste daño al enemigo, pierde una vida!!");
-        vidaEne -= 1;
-    } else if(ataqueJugador == 'Barrida' && ataqueEnemigo == 'Punio'){
-        alert("El enemigo te hizo daño, pierdes una vida!!");
-        vidaJug -= 1;
-    } else if(ataqueJugador == 'Patada' && ataqueEnemigo == 'Punio'){
-        alert("Le hiciste daño al enemigo, pierde una vida!!");
-        vidaEne -= 1;
-    } else if(ataqueJugador == 'Punio' && ataqueEnemigo == 'Patada'){
-        alert("El enemigo te hizo daño, pierdes una vida!!");
-        vidaJug -= 1;
-    } else if(ataqueJugador == 'Barrida' && ataqueEnemigo == 'Patada'){
-        alert("Le hiciste daño al enemigo, pierde una vida!!");
-        vidaEne -= 1;
-    } else {
-        alert("El enemigo te hizo daño, pierdes una vida!!");
-        vidaJug -= 1;
-    }
 
     vidaJugadorSpan.innerHTML = vidaJug;
     vidaEnemigoSpan.innerHTML = vidaEne;
@@ -139,6 +142,10 @@ function pelea() {
 
 function aleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function reiniciarJuego() {
+    location.reload();
 }
 
 window.addEventListener('load', iniciarJuego);
