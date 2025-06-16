@@ -2,3 +2,23 @@
 07:49:55 PM:WARNING [capa_datos_persona.py:16] mensaje a nivel warning
 07:49:55 PM:ERROR [capa_datos_persona.py:17] mensaje a nivel error
 07:49:55 PM:CRITICAL [capa_datos_persona.py:18] mensaje a nivel critical
+04:45:04 AM:DEBUG [Persona.py:48] 
+            Id Persona: 1,
+            nombre: juan,
+            apellido: Perez,
+            email: Jperez@email.com
+        
+04:45:04 AM:DEBUG [Persona.py:50] 
+            Id Persona: jose,
+            nombre: lepez,
+            apellido: Ljose@email.com,
+            email: None
+        
+05:11:00 PM:DEBUG [conexion.py:23] Conexion Exitosa: <connection object at 0x000001F4535B0E10; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+05:12:20 PM:DEBUG [conexion.py:23] Conexion Exitosa: <connection object at 0x0000017DACEB0E10; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+05:12:20 PM:ERROR [conexion.py:38] Ocurrio un error: 'NoneType' object has no attribute 'cursor'
+05:14:19 PM:DEBUG [conexion.py:23] Conexion Exitosa: <connection object at 0x000002955A2B4E10; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+05:14:19 PM:DEBUG [conexion.py:35] Se abrio correctamente el cursor: <cursor object at 0x0000029559F327A0; closed: 0>
+08:02:35 AM:DEBUG [conexion.py:36] creacion del pool exitosa: <psycopg2.pool.SimpleConnectionPool object at 0x000001F7282C4DD0>
+08:02:35 AM:DEBUG [conexion.py:18] Conexion obtenida del pool: <connection object at 0x000001F7282B1250; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+08:02:35 AM:DEBUG [conexion.py:18] Conexion obtenida del pool: <connection object at 0x000001F7282B1360; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
