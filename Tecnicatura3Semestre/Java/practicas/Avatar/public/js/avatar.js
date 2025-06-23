@@ -11,7 +11,11 @@ function iniciarJuego(){
     let botonReiniciar = document.getElementById('boton-reiniciar');
     botonReiniciar.addEventListener('click', reiniciarJuego);
 
+    document.getElementById("reglas-del-juego").style.display = "none";
 
+    document.getElementById("boton-reglas").addEventListener("click", mostrarReglas)
+    document.getElementById("boton-jugar").addEventListener("click", selecionarPersonajeJugador)
+    
     const vidaJugador = document.getElementById("vida-jugador");
     const vidaEnemigo = document.getElementById("vida-enemigo");
     vidaEne = 3;
@@ -28,12 +32,18 @@ function iniciarJuego(){
     botonBarrida.addEventListener('click', ataqueBarrida)
 }
 
+function mostrarReglas() {
+    document.getElementById("reglas-del-juego").style.display = "block";
+}
+
 function seleccionarPersonajeJugador() {
     const zuko = document.getElementById("zuko");
     const katara = document.getElementById("katara");
     const aang = document.getElementById("aang");
     const toph = document.getElementById("toph");
     const spanPersonajeJugador = document.getElementById('personaje-jugador');
+
+    document.getElementById("reglas-del-juego").style.display = "none";
 
     if (zuko.checked) {
         personajeSeleccionado = "Zuko";
