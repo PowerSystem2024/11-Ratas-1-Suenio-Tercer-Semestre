@@ -54,7 +54,7 @@ async function resolver(x, y, paso, tablero) {
   tablero[y][x] = paso;
   recorrido[paso] = [y, x];
   dibujarCaballo(y, x, paso);
-  await esperar(400);
+  await esperar(150);
 
   if (paso === N * N - 1) return true;
 
