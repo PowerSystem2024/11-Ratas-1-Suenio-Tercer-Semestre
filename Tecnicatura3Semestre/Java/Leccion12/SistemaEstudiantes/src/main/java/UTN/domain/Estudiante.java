@@ -1,31 +1,32 @@
-package UTN.dominio;
+package UTN.domain;
 
 public class Estudiante {
     private int idEstudiante;
     private String nombre;
     private String apellido;
     private String telefono;
-    private String mail;
+    private String email;
 
-    public Estudiante(){}
+    public Estudiante() { //Constructor vacio
+    }
 
-    public Estudiante(int idEstudiante){
+    public Estudiante(int idEstudiante) {
         this.idEstudiante = idEstudiante;
     }
 
-    public Estudiante(String nombre, String apellido, String telefono, String email){
+    public Estudiante(String nombre, String apellido, String telefono, String email) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
-        this.mail = email;
+        this.email = email;
     }
 
-    public Estudiante(int idEstudiante, String nombre, String apellido, String telefono, String email){
+    public Estudiante(int idEstudiante, String nombre, String apellido, String telefono, String email) {
         this.idEstudiante = idEstudiante;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
-        this.mail = email;
+        this.email = email;
     }
 
     public int getIdEstudiante() {
@@ -60,12 +61,12 @@ public class Estudiante {
         this.telefono = telefono;
     }
 
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
@@ -75,7 +76,7 @@ public class Estudiante {
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
                 ", telefono='" + telefono + '\'' +
-                ", mail='" + mail + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
